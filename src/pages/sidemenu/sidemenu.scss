@@ -1,0 +1,39 @@
+page-sidemenu {
+
+    .menuimage {
+        background-image: url('../../assets/imgs/menu-background.png');
+        background-repeat: no-repeat;background-size: cover;
+        background-position: center;
+        margin: auto;
+        z-index: 2; 
+        height: 100%;
+    }
+    .menuitems{
+        background-color: transparent;
+        color: white;
+    }
+    .menuprofImg{
+        margin-top: 10%;
+     
+    }
+    .menuheader{
+        height: 30%;
+    }
+    .menucontent{
+        background-color: #1a2023;
+    }
+    .menuline{
+        border-bottom: 0.2px solid white;
+    }
+
+
+
+}
+
+.item-md ion-avatar ion-img, .item-md ion-avatar img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;   width: 66px !important;
+    height: 66px !important;
+}

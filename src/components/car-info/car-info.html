@@ -1,0 +1,45 @@
+<!-- 
+  This component is the item of home page containing car's data.
+  Used in HomePage and CardetailPage.
+ -->
+
+<div text-center>
+
+  <!-- the header of the component -->
+  <ion-item no-lines>
+    <!-- Logo of the car -->
+    <ion-avatar item-left>
+      <img src="{{car.logo}}">
+    </ion-avatar>
+    <!-- The type of the car -->
+    <ion-label style="font-weight: bold;">{{car.type}}</ion-label>
+    <!-- The price of the car -->
+    <ion-label style="font-weight: bold;" float-end>{{car.price}}</ion-label>
+  </ion-item>
+
+  <!-- The image of the car that would by rent or sold -->
+  <img style="height: 220px;" src="{{car.img}}">
+
+  <ion-row text-start>
+    <!-- The number of the car -->
+    <ion-label style="font-weight: bold;">{{car.car_number}}</ion-label>
+    <!-- rate -->
+    <div float-end>
+      <rating [max]="5" [(ngModel)]="car.rate" style="color:#f7be02;font-size: 80%;" fullIcon="★" emptyIcon="☆"
+        [readonly]="true" [disabled]="false" [required]="true" [titles]="['one', 'two', 'three', 'four', 'five']">
+      </rating>
+      <small style="color:#f7be02;font-size: 100%;"> &nbsp; {{car.rate}}</small>
+    </div>
+  </ion-row>
+
+  <!--  Actions Icons  -->
+  <ion-item>
+    <div item-end style="color:#1f2433;font-size: 2.0rem;">
+      <ion-icon name="share"></ion-icon> &nbsp;
+      <ion-icon padding-left padding-right name="heart"></ion-icon>&nbsp;
+      <ion-icon name="chatbubbles"></ion-icon>
+    </div>
+  </ion-item>
+
+
+</div>

@@ -1,0 +1,41 @@
+<ion-content padding class="loginImage" [formGroup]="LoginForm">
+
+
+  <h2 class="card-header login-pad">LOGIN</h2>
+  <div class="card-content">
+    <!-- Email -->
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)]="User.email" formControlName="email"
+        [class.invalid]="!LoginForm.controls.email.valid  && LoginForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <!-- Password -->
+    <ion-item padding-bottom>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)]="User.passowrd" type="password" formControlName="password"
+        [class.invalid]="!LoginForm.controls.password.valid && LoginForm.controls.password.dirty"></ion-input>
+    </ion-item>
+
+  </div>
+
+  <br>
+  <!-- Login button -->
+  <button ion-button full color="danger" type="submit" [disabled]="!LoginForm.valid" (click)="doLogin()">Login</button>
+  <!-- Create new account -->
+  <ion-item text-center no-lines class="login-span">
+    <span ion-text>No account yet? Create one</span>
+  </ion-item>
+  <!-- Sign in button -->
+  <ion-item text-center no-lines class="login-span login-pad">
+    <span ion-text>Sign in with</span>
+  </ion-item>
+  <!-- Logos -->
+  <ion-item text-center no-lines class="login-icons">
+    <ion-icon name="logo-facebook"></ion-icon>
+    &nbsp;
+    <ion-icon name="logo-twitter"></ion-icon>
+    &nbsp;
+    <ion-icon name="logo-googleplus"></ion-icon>
+  </ion-item>
+
+</ion-content>

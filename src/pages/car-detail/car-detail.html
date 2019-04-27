@@ -9,16 +9,11 @@
         </button>
       </ion-buttons>
       <!-- Title -->
-      <ion-label ion-text color="light" style="font-size:2.0rem;">Home
-        <!-- Search -->
-        <span float-end>
-          <ion-icon name="search" style="font-size:2.0rem;" color="light"></ion-icon>
-          <!-- more -->
-          <ion-icon name="more" padding-left style="font-size:2.0rem;" color="light"></ion-icon>
-        </span>
+      <ion-label ion-text color="light" style="font-size:2.0rem;">BMW
+        <!-- Follow button -->
+        <button float-end style="background-color: red;color:white">+ Follow</button>
       </ion-label>
     </ion-navbar>
-
     <!-- Tabs for buy & rent -->
     <ion-row style="position: absolute; bottom: 0; width: 100%;">
       <ion-col col-6 text-center padding> <button id="buybtn" (click)="OnActive('buybtn')"
@@ -35,7 +30,7 @@
 
 <ion-content padding>
   <!-- List of cars info -->
-  <car-info (click)="Navigate()" *ngFor="let i of carlist"></car-info>
+  <car-info *ngFor="let i of carlist"></car-info>
 
   <!-- The notification button -->
   <ion-fab bottom end slot="fixed">

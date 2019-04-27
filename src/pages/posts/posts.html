@@ -1,0 +1,48 @@
+<!-- Page header -->
+<ion-header>
+  <ion-navbar class="title" text-center>
+    <ion-title> posts <ion-icon color="light" name="heart"></ion-icon>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Post -->
+  <ion-card>
+    <ion-item>
+      <ion-textarea placeholder="Enter your post here ...." [(ngModel)]="CurrentPost.text"></ion-textarea>
+    </ion-item>
+    <button id="PostBtn" float-end ion-button size="small" color="danger" (click)="OnPost()"
+      [disabled]="CurrentPost.text == ''">Post</button>
+  </ion-card>
+
+
+  <!-- List of previous posts -->
+  <ion-card *ngFor="let post of posts">
+    <!-- post by info (user info)-->
+    <ion-chip style="background-color: transparent">
+      <!-- user image -->
+      <ion-avatar>
+        <img src="{{post.img}}">
+      </ion-avatar>
+      <!-- user name -->
+      <ion-label>{{post.post_by}}</ion-label>
+      <!-- post date -->
+      <small>{{post.post_date}}</small>
+    </ion-chip>
+    <!-- post body -->
+    <ion-item no-lines>
+      <ion-textarea style="border:none" [disabled]="editableId != post.id" [(ngModel)]="post.text"></ion-textarea>
+    </ion-item>
+    <ion-item text-end>
+      <!-- done button -->
+      <ion-icon name="done-all" style="color: gray" *ngIf="editableId == post.id" (click)="DoneEdit(post.id)">
+      </ion-icon>
+      <!-- edit button -->
+      <ion-icon padding-right padding-left style="color: gray" (click)="OnEdit(post.id)" name="create"></ion-icon>
+      <!-- delete button -->
+      <ion-icon style="color: gray" name="trash" (click)="OnDelete(post.id)"></ion-icon>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

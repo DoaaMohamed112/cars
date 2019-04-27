@@ -1,24 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
-// import { AppRate } from '@ionic-native/app-rate';
+import { Component } from '@angular/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
-
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-car-detail',
+  templateUrl: 'car-detail.html',
 })
-export class HomePage {
+export class CarDetailPage {
 
-  carlist = [1, 2, 3];
+  carlist = [1, 2, 3];  // dummy list of cars
   myIndex: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private localNotifications: LocalNotifications) {
     // Set the active tab based on the passed index from menu.ts
@@ -38,6 +29,7 @@ export class HomePage {
     elem2.className += " tabactive";
 
   }
+
   // this method used to send notification 
   OnNotify() {
     this.localNotifications.requestPermission().then((permission) => {
@@ -52,9 +44,5 @@ export class HomePage {
         sound: null,
       });
     });
-  }
-  // this method navigate to detailed page 
-  Navigate() {
-    this.navCtrl.setRoot('CarDetailPage');
   }
 }

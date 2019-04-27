@@ -1,0 +1,33 @@
+<ion-menu [content]="content">
+    <ion-header class="menuheader">
+      <div class="menuimage">
+        <ion-item no-lines class="menuitems">
+            <ion-avatar class="menuprofImg">
+              <img src="../../assets/imgs/prof.jpg">
+            </ion-avatar>
+        </ion-item>
+        <ion-label padding color="light">{{email}}</ion-label>
+      </div>
+    </ion-header>
+   
+    <ion-content class="menucontent"> 
+      <ion-list>
+        <button ion-item no-lines class="menuitems" menuClose *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+            {{ p.title }}
+          </button>
+      </ion-list>
+      <hr class="menuline" margin>
+      <button ion-item no-lines class="menuitems" menuClose>
+          <ion-icon item-start name="add-circle" color="danger" ></ion-icon>
+          Post Car
+        </button>
+        <button ion-item no-lines class="menuitems" menuClose (click)="Checkout()">
+          <ion-icon item-start name="log-out" color="danger"></ion-icon>
+          Check out
+        </button>
+    </ion-content>
+  </ion-menu>
+   
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
