@@ -30,7 +30,7 @@
 
 <ion-content padding>
   <!-- List of cars info -->
-  <car-info *ngFor="let i of carlist"></car-info>
+  <car-info *ngFor="let i of carlist" [car]="car"></car-info>
 
   <!-- The notification button -->
   <ion-fab bottom end slot="fixed">

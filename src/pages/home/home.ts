@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 // import { AppRate } from '@ionic-native/app-rate';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
+import { Car } from '../../models/Car';
 
 
 /**
@@ -17,12 +18,23 @@ import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
   templateUrl: 'home.html',
 })
 export class HomePage {
-
-  carlist = [1, 2, 3];
+  car : Car = 
+  {
+    "logo":"../../assets/imgs/bmw.png",
+    "type":"BMW",
+    "price":"&79.00000",
+    "img":"../../assets/imgs/car.jpg",
+    "car_number":"2016 BMW M4",
+    "rate":4.7
+  } // dummy object contains car data.
+  carlist : Car[]= [];
   myIndex: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private localNotifications: LocalNotifications) {
     // Set the active tab based on the passed index from menu.ts
     this.myIndex = navParams.data.tabIndex || 0;
+    this.carlist.push(this.car);
+    this.carlist.push(this.car);
+    this.carlist.push(this.car);
   }
 
   ionViewDidLoad() {

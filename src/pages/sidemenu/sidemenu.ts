@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
+import { PageInterface } from '../../models/PageInterface';
 
 /**
  * Generated class for the SidemenuPage page.
@@ -14,13 +15,6 @@ import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
   templateUrl: 'sidemenu.html',
 })
 export class SidemenuPage {
-
-  // constructor(public navCtrl: NavController, public navParams: NavParams) {
-  // }
-
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad SidemenuPage');
-  // }
 
   // Basic root for our content view
   rootPage = 'HomePage';
@@ -57,28 +51,9 @@ export class SidemenuPage {
       this.nav.setRoot(page.pageName, params);
     }
   }
- 
-  isActive(page: PageInterface) {
-    // Again the Tabs Navigation
-    let childNav = this.nav.getActiveChildNav();
- 
-    if (childNav) {
-      if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
-        return 'light';
-      }
-      return;
-    }
- 
-    // Fallback needed when there is no active childnav (tabs not active)
-    if (this.nav.getActive() && this.nav.getActive().name === page.pageName) {
-      return 'light';
-    }
-    return;
-  }
-
+ // this method navigate to check out page
   Checkout()
   {
-    //this.navCtrl.setRoot('CheckOutPage');
     this.navCtrl.push('CheckOutPage', {
       param1: this.email
   });
@@ -86,11 +61,3 @@ export class SidemenuPage {
   }
 
 }
-  export interface PageInterface {
-    title: string;
-    pageName: string;
-    tabComponent?: any;
-    index?: number;
-    icon: string;
-  }
-
