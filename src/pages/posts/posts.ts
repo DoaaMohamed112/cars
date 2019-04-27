@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { stringify } from '@angular/core/src/render3/util';
 import { isRightSide } from 'ionic-angular/umd/util/util';
 
-/**
- * Generated class for the PostsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -38,6 +32,7 @@ export class PostsPage {
     this.CurrentPost.post_date = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
 
     // POST: adds a random id to the object sent
+    // Note: the resource will not be really created on the server but it will be faked as if.
     fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
       body: JSON.stringify({
@@ -49,10 +44,8 @@ export class PostsPage {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-      .then(response => { console.log(response) ; response.json();})
+      .then(response => response.json())
       .then(json => {
-        console.log(json) ;
-        console.log(json["id"]);
         this.CurrentPost.id = Number(json["id"]);
         // add the new post to the list of posts
         this.posts.push(this.CurrentPost);
@@ -77,7 +70,8 @@ export class PostsPage {
     // Reset the editableId
     this.editableId = -1;
     console.log(this.posts.find(i => i.id == id).text);
-    // PUT: post the data with the id of the post that the user edited it
+    // PUT: post the data with the id of the post that the user edited it 
+    // Note: the resource will not be really updated on the server but it will be faked as if.
     fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
       method: 'PUT',
       body: JSON.stringify({
@@ -90,8 +84,6 @@ export class PostsPage {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-      .then(response => { console.log(response) ; response.json()})
-      .then(json => console.log(json))
   }
   // Event to delete the post : shows alert to confirm the delete action
   OnDelete(id) {
@@ -109,6 +101,7 @@ export class PostsPage {
           text: 'OK',
           handler: (data: any) => {
             // DELETE: delete the post 
+            // Note: the resource will not be really deleted on the server but it will be faked as if.
             fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
               method: 'DELETE'
             })
